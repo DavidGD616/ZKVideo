@@ -1,11 +1,20 @@
-const URl = process.env.URL;
-const API = process.env.API_KEY;
+const axios = require('axios');
+
+const API_KEY = process.env.API_KEY;
+
+const api = axios.create({
+  baseURL: 'https://api.themoviedb.org/3',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8',
+  },
+  params: {
+    'api_key': API_KEY, 
+  },
+});
 
 const getTrendingMovies = async () => {
-  const apiURl = `${URl}/trending/movie/day?api_key=${API}`;
   try {
-    const res = await fetch(apiURl);
-    const data = await res.json();
+    const { data } = await api('/trending/movie/day');
     return data;
   } catch (error) {
       console.log('Fetch Error', error);
