@@ -2,25 +2,6 @@ import TrendingMoviesPreview from "./components/TrendingMoviesPreview";
 import CategoriesPreview from "./components/CategoriesPreview";
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
 
-window.addEventListener("DOMContentLoaded", navigator, false);
-window.addEventListener("hashchange", navigator, false);
-
-function navigator() {
-  console.log({ location });
-
-  if (location.hash.startsWith("#trends")) {
-    trendsPage();
-  } else if (location.hash.startsWith("#search=")) {
-    searchPage();
-  } else if (location.hash.startsWith("#movie=")) {
-    movieDetailsPage();
-  } else if (location.hash.startsWith("#category=")) {
-    categoriesPage();
-  } else {
-    homePage();
-  }
-}
-
 //Sections
 const headerSection = Sections().headerSection;
 const trendingPreviewSection = Sections().trendingPreviewSection;
@@ -40,10 +21,43 @@ const headerTitle = Elements().headerTitle;
 const arrowBtn = Elements().arrowBtn;
 const headerCategoryTitle = Elements().headerCategoryTitle;
 const searchFormInput = Elements().searchFormInput;
+const searchFormBtn = Elements().searchFormBtn;
 const trendingBtn = Elements().trendingBtn;
 const movieDetailTitle = Elements().movieDetailTitle;
 const movieDetailDescription = Elements().movieDetailDescription;
 const movieDetailScore = Elements().movieDetailScore;
+
+searchFormBtn.addEventListener('click', () => {
+  location.hash = '#search=';
+});
+
+trendingBtn.addEventListener('click', () => {
+  location.hash = '#trends'
+});
+
+arrowBtn.addEventListener('click', () => {
+  location.hash = '#home';
+})
+
+window.addEventListener("DOMContentLoaded", navigator, false);
+window.addEventListener("hashchange", navigator, false);
+
+function navigator() {
+  console.log({ location });
+
+  if (location.hash.startsWith("#trends")) {
+    trendsPage();
+  } else if (location.hash.startsWith("#search=")) {
+    searchPage();
+  } else if (location.hash.startsWith("#movie=")) {
+    movieDetailsPage();
+  } else if (location.hash.startsWith("#category=")) {
+    categoriesPage();
+  } else {
+    homePage();
+  }
+}
+
 
 function homePage() {
   console.log("Home!!");
