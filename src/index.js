@@ -1,5 +1,6 @@
 import TrendingMoviesPreview from "./components/TrendingMoviesPreview";
 import CategoriesPreview from "./components/CategoriesPreview";
+import MoviesByCategory from "./components/MoviesByCategory"
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
 
 //Sections
@@ -93,6 +94,16 @@ function categoriesPage() {
   CategoriesPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
+
+   // ['#category', 'id-name'];
+  const [_, categoryData ] = location.hash.split('=');
+  const [categoryId, categoryName] = categoryData.split('-');
+  const newCategoryName = decodeURI(categoryName);
+
+  headerCategoryTitle.innerHTML = newCategoryName;
+
+
+  MoviesByCategory(categoryId, newCategoryName);
 }
 
 function movieDetailsPage() {

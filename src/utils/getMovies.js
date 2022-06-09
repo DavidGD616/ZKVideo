@@ -21,4 +21,17 @@ const getTrendingMovies = async () => {
   }
 };
 
-export default getTrendingMovies;
+const getMoviesByCategory = async (id) => {
+  try {
+    const { data } = await api('discover/movie', {
+      params: {
+        with_genres: id,
+      },
+    })
+    return data;
+  } catch (error) {
+    console.log('Fetch Error', error);
+  }
+}
+
+export { getTrendingMovies, getMoviesByCategory };
