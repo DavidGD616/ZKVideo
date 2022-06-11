@@ -28,7 +28,7 @@ const getMoviesByCategory = async (id) => {
         with_genres: id,
       },
     })
-    return data;
+   return data
   } catch (error) {
     console.log('Fetch Error', error);
   }
