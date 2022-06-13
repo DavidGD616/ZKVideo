@@ -1,6 +1,7 @@
 import TrendingMoviesPreview from "./components/TrendingMoviesPreview";
 import CategoriesPreview from "./components/CategoriesPreview";
-import MoviesByCategory from "./components/MoviesByCategory"
+import MoviesByCategory from "./components/MoviesByCategory";
+import MoviesBySearch from "./components/MoviesBySearch";
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
 
 //Sections
@@ -28,17 +29,17 @@ const movieDetailTitle = Elements().movieDetailTitle;
 const movieDetailDescription = Elements().movieDetailDescription;
 const movieDetailScore = Elements().movieDetailScore;
 
-searchFormBtn.addEventListener('click', () => {
-  location.hash = '#search=';
+searchFormBtn.addEventListener("click", () => {
+  location.hash = "#search=" + searchFormInput.value;
 });
 
-trendingBtn.addEventListener('click', () => {
-  location.hash = '#trends'
+trendingBtn.addEventListener("click", () => {
+  location.hash = "#trends";
 });
 
-arrowBtn.addEventListener('click', () => {
-  location.hash = '#home';
-})
+arrowBtn.addEventListener("click", () => {
+  location.hash = "#home";
+});
 
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
@@ -61,14 +62,13 @@ function navigator() {
   window.scrollTo(0, 0);
 }
 
-
 function homePage() {
   console.log("Home!!");
 
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.add("inactive");
-  arrowBtn.classList.remove('header-arrow--white');
+  arrowBtn.classList.remove("header-arrow--white");
   headerTitle.classList.remove("inactive");
   headerCategoryTitle.classList.add("inactive");
   searchForm.classList.remove("inactive");
@@ -87,7 +87,7 @@ function categoriesPage() {
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.remove('header-arrow--white');
+  arrowBtn.classList.remove("header-arrow--white");
   headerTitle.classList.add("inactive");
   headerCategoryTitle.classList.remove("inactive");
   searchForm.classList.add("inactive");
@@ -97,13 +97,12 @@ function categoriesPage() {
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
 
-   // ['#category', 'id-name'];
-  const [_, categoryData ] = location.hash.split('=');
-  const [categoryId, categoryName] = categoryData.split('-');
+  // ['#category', 'id-name'];
+  const [_, categoryData] = location.hash.split("=");
+  const [categoryId, categoryName] = categoryData.split("-");
   const newCategoryName = decodeURI(categoryName);
 
   headerCategoryTitle.innerHTML = newCategoryName;
-
 
   MoviesByCategory(categoryId, newCategoryName);
 }
@@ -113,7 +112,7 @@ function movieDetailsPage() {
   headerSection.classList.add("header-container--long");
   // headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.remove('header-arrow--white');
+  arrowBtn.classList.remove("header-arrow--white");
   headerTitle.classList.add("inactive");
   headerCategoryTitle.classList.add("inactive");
   searchForm.classList.add("inactive");
@@ -129,15 +128,19 @@ function searchPage() {
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.remove('header-arrow--white');
+  arrowBtn.classList.remove("header-arrow--white");
   headerTitle.classList.add("inactive");
-  headerCategoryTitle.classList.remove("inactive");
+  headerCategoryTitle.classList.add("inactive");
   searchForm.classList.remove("inactive");
 
   trendingPreviewSection.classList.add("inactive");
   CategoriesPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
+
+  // ['#search', 'any word'];
+  const [_, query] = location.hash.split("=");
+  MoviesBySearch(query)
 }
 
 function trendsPage() {
@@ -145,7 +148,7 @@ function trendsPage() {
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
-  arrowBtn.classList.remove('header-arrow--white');
+  arrowBtn.classList.remove("header-arrow--white");
   headerTitle.classList.add("inactive");
   headerCategoryTitle.classList.remove("inactive");
   searchForm.classList.add("inactive");

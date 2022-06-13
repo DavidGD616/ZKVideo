@@ -28,10 +28,23 @@ const getMoviesByCategory = async (id) => {
         with_genres: id,
       },
     })
-   return data
+   return data;
   } catch (error) {
     console.log('Fetch Error', error);
   }
 }
 
-export { getTrendingMovies, getMoviesByCategory };
+const getMoviesBySearch = async (query) => {
+  try {
+    const { data } = await api('search/movie', {
+      params: {
+        query,
+      },
+    })
+   return data;
+  } catch (error) {
+    console.log('Fetch Error', error);
+  }
+}
+
+export { getTrendingMovies, getMoviesByCategory, getMoviesBySearch };
