@@ -3,6 +3,7 @@ import CategoriesPreview from "./components/CategoriesPreview";
 import MoviesByCategory from "./components/MoviesByCategory";
 import MoviesBySearch from "./components/MoviesBySearch";
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
+import trendingMoviesPage from "./components/TrendingMoviesPage";
 
 //Sections
 const headerSection = Sections().headerSection;
@@ -30,7 +31,7 @@ const movieDetailDescription = Elements().movieDetailDescription;
 const movieDetailScore = Elements().movieDetailScore;
 
 searchFormBtn.addEventListener("click", () => {
-  location.hash = "#search=" + searchFormInput.value;
+  location.hash = `#search=${searchFormInput.value.trim()}`;
 });
 
 trendingBtn.addEventListener("click", () => {
@@ -38,7 +39,7 @@ trendingBtn.addEventListener("click", () => {
 });
 
 arrowBtn.addEventListener("click", () => {
-  location.hash = "#home";
+  location.hash = window.history.back();
 });
 
 window.addEventListener("DOMContentLoaded", navigator, false);
@@ -157,6 +158,10 @@ function trendsPage() {
   CategoriesPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
+
+  headerCategoryTitle.innerHTML = "Trends";
+
+  trendingMoviesPage();
 }
 
 // console.log(Sections().headerSection.classList.add('inactive'))
