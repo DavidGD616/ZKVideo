@@ -47,7 +47,6 @@ window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 
 function navigator() {
-  console.log({ location });
 
   if (location.hash.startsWith("#trends")) {
     trendsPage();
@@ -64,8 +63,9 @@ function navigator() {
   window.scrollTo(0, 0);
 }
 
+// Home
 function homePage() {
-  console.log("Home!!");
+  // console.log("Home!!");
 
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
@@ -84,8 +84,9 @@ function homePage() {
   CategoriesPreview();
 }
 
+// Categories
 function categoriesPage() {
-  console.log("categories!!");
+  // console.log("categories!!");
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
@@ -109,8 +110,9 @@ function categoriesPage() {
   MoviesByCategory(categoryId, newCategoryName);
 }
 
+// Movie Page
 function movieDetailsPage() {
-  console.log("Movie!!");
+  // console.log("Movie!!");
 
   headerSection.classList.add("header-container--long");
   // headerSection.style.background = "";
@@ -132,8 +134,9 @@ function movieDetailsPage() {
   MovieById(movieId);
 }
 
+// Search
 function searchPage() {
-  console.log("Search!!");
+  // console.log("Search!!");
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
@@ -152,8 +155,9 @@ function searchPage() {
   MoviesBySearch(query)
 }
 
+// Trends
 function trendsPage() {
-  console.log("TRENDS!!");
+  // console.log("TRENDS!!");
   headerSection.classList.remove("header-container--long");
   headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
