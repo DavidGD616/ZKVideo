@@ -1,6 +1,7 @@
 import { getMovieById } from "../utils/getMovies";
 import { Elements, ListContainers, Sections } from "../utils/Nodes";
 import createCategories from "../utils/createCategories";
+import RelatedMoviesId from "./RelatedMoviesId";
 
 //Elements
 const movieDetailTitle = Elements().movieDetailTitle;
@@ -28,6 +29,8 @@ const MovieById = async (id) => {
   movieDetailScore.textContent = movie.vote_average;
 
   createCategories(movie.genres, movieDetailCategoriesList);
+
+  RelatedMoviesId(id);
 };
 
 export default MovieById;

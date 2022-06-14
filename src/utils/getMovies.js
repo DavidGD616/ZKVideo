@@ -1,59 +1,74 @@
-const axios = require('axios');
+const axios = require("axios");
 
 const API_KEY = process.env.API_KEY;
 
 const api = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+  baseURL: "https://api.themoviedb.org/3",
   headers: {
-    'Content-Type': 'application/json;charset=utf-8',
+    "Content-Type": "application/json;charset=utf-8",
   },
   params: {
-    'api_key': API_KEY, 
+    api_key: API_KEY,
   },
 });
 
 const getTrendingMovies = async () => {
   try {
-    const { data } = await api('/trending/movie/day');
+    const { data } = await api("/trending/movie/day");
     return data;
   } catch (error) {
-      console.log('Fetch Error', error);
+    console.log("Fetch Error", error);
   }
 };
 
 const getMoviesByCategory = async (id) => {
   try {
-    const { data } = await api('discover/movie', {
+    const { data } = await api("discover/movie", {
       params: {
         with_genres: id,
       },
     });
-   return data;
+    return data;
   } catch (error) {
-    console.log('Fetch Error', error);
+    console.log("Fetch Error", error);
   }
-}
+};
 
 const getMoviesBySearch = async (query) => {
   try {
-    const { data } = await api('search/movie', {
+    const { data } = await api("search/movie", {
       params: {
         query,
       },
     });
-   return data;
+    return data;
   } catch (error) {
-    console.log('Fetch Error', error);
+    console.log("Fetch Error", error);
   }
-}
+};
 
 const getMovieById = async (id) => {
   try {
     const { data: movie } = await api(`movie/${id}`);
     return movie;
   } catch (error) {
-    console.log('Fetch error', error);
+    console.log("Fetch error", error);
   }
-}
+};
 
-export { getTrendingMovies, getMoviesByCategory, getMoviesBySearch, getMovieById };
+const getRelatedMoviesId = async (id) => {
+  try {
+    const { data } = await api(`movie/${id}/similar`);
+    return data;
+  } catch (error) {
+    console.log("Fetch error", error);
+  }
+};
+
+export {
+  getTrendingMovies,
+  getMoviesByCategory,
+  getMoviesBySearch,
+  getMovieById,
+  getRelatedMoviesId,
+};
