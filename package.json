@@ -13,6 +13,7 @@
   "author": "David Guerrero <davidguerrerodiaz12@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
@@ -21,7 +22,6 @@
     "dotenv-webpack": "^7.1.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.2",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
