@@ -2,6 +2,7 @@ import TrendingMoviesPreview from "./components/TrendingMoviesPreview";
 import CategoriesPreview from "./components/CategoriesPreview";
 import MoviesByCategory from "./components/MoviesByCategory";
 import MoviesBySearch from "./components/MoviesBySearch";
+import MovieById from "./components/MovieById";
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
 import trendingMoviesPage from "./components/TrendingMoviesPage";
 
@@ -110,6 +111,7 @@ function categoriesPage() {
 
 function movieDetailsPage() {
   console.log("Movie!!");
+
   headerSection.classList.add("header-container--long");
   // headerSection.style.background = "";
   arrowBtn.classList.remove("inactive");
@@ -122,6 +124,12 @@ function movieDetailsPage() {
   CategoriesPreviewSection.classList.add("inactive");
   genericSection.classList.add("inactive");
   movieDetailSection.classList.remove("inactive");
+
+
+  // ['#movie', 'any id'];
+  const [_, movieId] = location.hash.split("=");
+
+  MovieById(movieId);
 }
 
 function searchPage() {
