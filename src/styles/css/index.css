@@ -297,6 +297,7 @@
 }
 .movie-img {
   border-radius: 8px;
+  min-height: 175px;
 }
 
 .category-container--loading {
@@ -326,7 +327,7 @@
 /* Footer */
 footer {
   background-color: #050928;
-  color: var(--purple-light-2);
+  color: white;
   text-align: center;
   height: 48px;
   display: flex;
