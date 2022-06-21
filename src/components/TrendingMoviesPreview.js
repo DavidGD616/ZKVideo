@@ -7,7 +7,7 @@ const TrendingMoviesPreview = async () => {
   const movies = trendingMovies.results;
   const trendingMoviesPreviewList = ListContainers().trendingMoviesPreviewList;
 
-  createMovies(movies, trendingMoviesPreviewList);
+  createMovies(movies, trendingMoviesPreviewList, true);
 };
 
 export default TrendingMoviesPreview;
