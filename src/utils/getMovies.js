@@ -65,10 +65,27 @@ const getRelatedMoviesId = async (id) => {
   }
 };
 
+let page = 1;
+
+const getPaginatedTrendingMovies = async () => {
+  page++
+  try {
+    const { data } = await api("/trending/movie/day", {
+      params: {
+        page,
+      }
+    });
+    return data;
+  } catch (error) {
+    console.log("Fetch Error", error);
+  }
+};
+
 export {
   getTrendingMovies,
   getMoviesByCategory,
   getMoviesBySearch,
   getMovieById,
   getRelatedMoviesId,
+  getPaginatedTrendingMovies
 };
