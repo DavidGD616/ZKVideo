@@ -5,6 +5,7 @@ import MoviesBySearch from "./components/MoviesBySearch";
 import MovieById from "./components/MovieById";
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
 import trendingMoviesPage from "./components/TrendingMoviesPage";
+import PaginatedTrendingMovies from "./components/PaginatedTrendingMovies";
 
 //Sections
 const headerSection = Sections().headerSection;
@@ -43,10 +44,18 @@ arrowBtn.addEventListener("click", () => {
   location.hash = window.history.back();
 });
 
+let infiniteScroll;
+
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
+window.addEventListener("scroll", infiniteScroll, false);
 
 function navigator() {
+
+  if (infiniteScroll) {
+    window.removeEventListener("scroll", infiniteScroll, { passive: false } );
+    infiniteScroll = undefined;
+  }
 
   if (location.hash.startsWith("#trends")) {
     trendsPage();
@@ -58,6 +67,10 @@ function navigator() {
     categoriesPage();
   } else {
     homePage();
+  }
+
+  if (infiniteScroll) {
+    window.addEventListener("scroll", infiniteScroll, { passive: false })
   }
 
   window.scrollTo(0, 0);
@@ -174,6 +187,8 @@ function trendsPage() {
   headerCategoryTitle.innerHTML = "Trends";
 
   trendingMoviesPage();
+
+  infiniteScroll = PaginatedTrendingMovies;
 }
 
 // console.log(Sections().headerSection.classList.add('inactive'))

@@ -11,10 +11,10 @@ const trendingMoviesPage = async () => {
 
   createMovies(movies, genericSection, { lazyLoad: true, clean: page == 1 });
 
-  const btnLoadMore = document.createElement("button");
-  btnLoadMore.innerText = "Load More";
-  btnLoadMore.addEventListener("click", PaginatedTrendingMovies);
-  genericSection.appendChild(btnLoadMore);
+  // const btnLoadMore = document.createElement("button");
+  // btnLoadMore.innerText = "Load More";
+  // btnLoadMore.addEventListener("click", PaginatedTrendingMovies);
+  // genericSection.appendChild(btnLoadMore);
 };
 
 export default trendingMoviesPage;

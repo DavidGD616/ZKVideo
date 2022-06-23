@@ -68,17 +68,28 @@ const getRelatedMoviesId = async (id) => {
 let page = 1;
 
 const getPaginatedTrendingMovies = async () => {
-  page++
   try {
-    const { data } = await api("/trending/movie/day", {
-      params: {
-        page,
-      }
-    });
-    return data;
+    const {
+      scrollTop,
+      scrollHeight,
+      clientHeight
+    } = document.documentElement;
+
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15)
+
+    if (scrollIsBottom) {
+      page++
+      const { data } = await api("/trending/movie/day", {
+        params: {
+          page,
+        }
+      });
+      return data;
+    }
   } catch (error) {
     console.log("Fetch Error", error);
   }
+
 };
 
 export {
