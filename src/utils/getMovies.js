@@ -15,6 +15,8 @@ const api = axios.create({
 const getTrendingMovies = async () => {
   try {
     const { data } = await api("/trending/movie/day");
+    maxPage = data.total_pages;
+    console.log(maxPage);
     return data;
   } catch (error) {
     console.log("Fetch Error", error);
@@ -66,6 +68,7 @@ const getRelatedMoviesId = async (id) => {
 };
 
 let page = 1;
+let maxPage;
 
 const getPaginatedTrendingMovies = async () => {
   try {
@@ -75,9 +78,12 @@ const getPaginatedTrendingMovies = async () => {
       clientHeight
     } = document.documentElement;
 
-    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15)
+    
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+    const pageIsNotMax = page < maxPage;
 
-    if (scrollIsBottom) {
+
+    if (scrollIsBottom && pageIsNotMax) {
       page++
       const { data } = await api("/trending/movie/day", {
         params: {

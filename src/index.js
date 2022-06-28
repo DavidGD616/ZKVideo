@@ -44,6 +44,7 @@ arrowBtn.addEventListener("click", () => {
   location.hash = window.history.back();
 });
 
+
 let infiniteScroll;
 
 window.addEventListener("DOMContentLoaded", navigator, false);
