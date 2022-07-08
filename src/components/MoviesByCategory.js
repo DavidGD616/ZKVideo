@@ -8,7 +8,7 @@ const MoviesByCategory = async (id) => {
   const movies = movieCategory.results;
   const genericSection = Sections().genericSection;
 
-  createMovies(movies, genericSection, true);
+  createMovies(movies, genericSection, { lazyLoad: true });
 };
 
 export default MoviesByCategory;

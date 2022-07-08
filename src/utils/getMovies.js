@@ -12,6 +12,8 @@ const api = axios.create({
   },
 });
 
+// Get Movies
+
 const getTrendingMovies = async () => {
   try {
     const { data } = await api("/trending/movie/day");
@@ -30,6 +32,8 @@ const getMoviesByCategory = async (id) => {
         with_genres: id,
       },
     });
+    maxPage = data.total_pages;
+    console.log(maxPage);
     return data;
   } catch (error) {
     console.log("Fetch Error", error);
@@ -69,6 +73,10 @@ const getRelatedMoviesId = async (id) => {
   }
 };
 
+
+//PaginatedMovies
+
+
 let page = 1;
 let maxPage;
 
@@ -91,6 +99,35 @@ const getPaginatedTrendingMovies = async () => {
         params: {
           page,
         }
+      });
+      return data;
+    }
+  } catch (error) {
+    console.log("Fetch Error", error);
+  }
+
+};
+
+const getPaginatedMoviesByCategory = async (id) => {
+  try {
+    const {
+      scrollTop,
+      scrollHeight,
+      clientHeight
+    } = document.documentElement;
+
+    
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+    const pageIsNotMax = page < maxPage;
+
+
+    if (scrollIsBottom && pageIsNotMax) {
+      page++
+      const { data } = await api("discover/movie", {
+        params: {
+          with_genres: id,
+          page,
+        },
       });
       return data;
     }
@@ -137,4 +174,5 @@ export {
   getRelatedMoviesId,
   getPaginatedTrendingMovies,
   getPaginatedMoviesBySearch,
+  getPaginatedMoviesByCategory,
 };

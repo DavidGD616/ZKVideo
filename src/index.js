@@ -7,6 +7,7 @@ import { Sections, ListContainers, Elements } from "./utils/Nodes";
 import trendingMoviesPage from "./components/TrendingMoviesPage";
 import PaginatedTrendingMovies from "./components/PaginatedTrendingMovies";
 import PaginatedMoviesBySearch from "./components/PaginatedMoviesBySearch";
+import PaginatedMoviesByCategory from "./components/PaginatedMoviesByCategory";
 
 //Sections
 const headerSection = Sections().headerSection;
@@ -123,6 +124,10 @@ function categoriesPage() {
   headerCategoryTitle.innerHTML = newCategoryName;
 
   MoviesByCategory(categoryId, newCategoryName);
+
+  infiniteScroll = () => {
+    PaginatedMoviesByCategory(categoryId);
+  }
 }
 
 // Movie Page
