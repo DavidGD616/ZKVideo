@@ -6,6 +6,7 @@ import MovieById from "./components/MovieById";
 import { Sections, ListContainers, Elements } from "./utils/Nodes";
 import trendingMoviesPage from "./components/TrendingMoviesPage";
 import PaginatedTrendingMovies from "./components/PaginatedTrendingMovies";
+import PaginatedMoviesBySearch from "./components/PaginatedMoviesBySearch";
 
 //Sections
 const headerSection = Sections().headerSection;
@@ -167,6 +168,10 @@ function searchPage() {
   // ['#search', 'any word'];
   const [_, query] = location.hash.split("=");
   MoviesBySearch(query)
+
+  infiniteScroll = () => {
+    PaginatedMoviesBySearch(query)
+  }
 }
 
 // Trends

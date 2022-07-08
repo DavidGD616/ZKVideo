@@ -5,6 +5,7 @@ import createMovies from "../utils/createMovies";
 const MoviesBySearch = async (query) => {
     const movieSearch = await getMoviesBySearch(query);
     const movies = movieSearch.results;
+    console.log(movies)
     const genericSection = Sections().genericSection;
     
     createMovies(movies, genericSection);

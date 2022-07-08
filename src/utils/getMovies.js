@@ -43,6 +43,8 @@ const getMoviesBySearch = async (query) => {
         query,
       },
     });
+    maxPage = data.total_pages;
+    console.log(maxPage)
     return data;
   } catch (error) {
     console.log("Fetch Error", error);
@@ -98,11 +100,41 @@ const getPaginatedTrendingMovies = async () => {
 
 };
 
+const getPaginatedMoviesBySearch = async (query) => {
+  try {
+    const {
+      scrollTop,
+      scrollHeight,
+      clientHeight
+    } = document.documentElement;
+
+    
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+    const pageIsNotMax = page < maxPage;
+
+
+    if (scrollIsBottom && pageIsNotMax) {
+      page++
+      const { data } = await api("search/movie", {
+        params: {
+          query,
+          page,
+        },
+      });
+      return data;
+    }
+  } catch (error) {
+    console.log("Fetch Error", error);
+  }
+
+};
+
 export {
   getTrendingMovies,
   getMoviesByCategory,
   getMoviesBySearch,
   getMovieById,
   getRelatedMoviesId,
-  getPaginatedTrendingMovies
+  getPaginatedTrendingMovies,
+  getPaginatedMoviesBySearch,
 };

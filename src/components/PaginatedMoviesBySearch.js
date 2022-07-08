@@ -5,13 +5,10 @@ import { getPaginatedMoviesBySearch } from "../utils/getMovies";
 const PaginatedMoviesBySearch = async (query) => {
   const pgSearchMovies = await getPaginatedMoviesBySearch(query);
   const movies = pgSearchMovies.results;
+  console.log(pgSearchMovies)
   const genericSection = Sections().genericSection;
 
   createMovies(movies, genericSection, { lazyLoad: true, clean: false });
-  //   const btnLoadMore = document.createElement("button");
-  //   btnLoadMore.innerText = "Load More";
-  //   btnLoadMore.addEventListener("click", PaginatedTrendingMovies);
-  //   genericSection.appendChild(btnLoadMore);
 };
 
 export default PaginatedMoviesBySearch;
