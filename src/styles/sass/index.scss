@@ -6,6 +6,7 @@
 @use './MovieDetail.scss';
 @use './Squeleton.scss';
 @use './Footer.scss';
+@use './Liked.scss';
 
 /* General */
 * { box-sizing: border-box; }
@@ -73,15 +74,15 @@ button {
 }
 
 /* Shared */
-.header-container, .trendingPreview-header, .categoriesPreview-container {
+.header-container, .trendingPreview-header, .categoriesPreview-container, .liked-header {
     padding: 0 24px;
 }
 
-.trendingPreview-container, .categoriesPreview-container, footer {
+.trendingPreview-container, .categoriesPreview-container, .liked-container, footer {
     margin-top: 48px;
 }
 
-.trendingPreview-header, .categoriesPreview-title {
+.trendingPreview-header, .categoriesPreview-title, .liked-header {
     margin-bottom: 24px;
 }
 

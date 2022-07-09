@@ -1,0 +1,37 @@
+/* Liked */
+
+.liked {
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-btn {
+        background: #BA6EF5;
+        border-radius: 8px;
+        height: 32px;
+        width: 78px;
+    }
+
+    &-movieList {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        height: 241px;
+        padding-left: 24px;
+        padding-bottom: 16px;
+        & .movie-container {
+            display: inline-block;
+            margin-right: 8px;
+            & .movie-img {
+                height: 225px;
+                min-height: 225px;
+                max-height: 225px;
+                width: 150px;
+                min-width: 150px;
+                max-width: 150px;
+            }
+        }
+    }
+}
