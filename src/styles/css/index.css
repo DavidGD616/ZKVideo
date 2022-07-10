@@ -368,6 +368,26 @@ footer {
   max-width: 150px;
 }
 
+.movie-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  padding: 0;
+  margin: 0;
+}
+.movie-btn::before {
+  content: "🤍";
+}
+.movie-btn--liked {
+  background-color: #FBFAFB;
+}
+.movie-btn--liked::before {
+  content: "💜";
+}
+
 /* General */
 * {
   box-sizing: border-box;
@@ -458,6 +478,7 @@ button {
 
 .movie-container {
   cursor: pointer;
+  position: relative;
 }
 
 .movie-img {

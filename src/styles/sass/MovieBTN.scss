@@ -1,0 +1,19 @@
+.movie-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    padding: 0;
+    margin: 0;
+    &::before {
+        content: "🤍";
+    }
+    &--liked {
+        background-color: #FBFAFB;
+        &::before {
+            content: "💜";
+        }
+    }
+}

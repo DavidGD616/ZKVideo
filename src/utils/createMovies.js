@@ -13,9 +13,6 @@ function createMovies(movies, container,
   movies.forEach((movie) => {
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container");
-    movieContainer.addEventListener("click", () => {
-      location.hash = `#movie=${movie.id}`;
-    });
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
@@ -24,6 +21,9 @@ function createMovies(movies, container,
       lazyLoad ? "data-img" : "src",
       "https://image.tmdb.org/t/p/w300" + movie.poster_path
     );
+    movieImg.addEventListener("click", () => {
+      location.hash = `#movie=${movie.id}`;
+    });
     movieImg.addEventListener("error", () => {
       movieImg.setAttribute(
         "src",
@@ -31,11 +31,20 @@ function createMovies(movies, container,
       );
     });
 
+    const movieBtn = document.createElement('button');
+    movieBtn.classList.add('movie-btn');
+    movieBtn.addEventListener('click', () => {
+      movieBtn.classList.toggle('movie-btn--liked');
+      // We must to add the movie to LS
+    })
+    
+
     if (lazyLoad) {
       lazyLoader.observe(movieImg);
     }
 
     movieContainer.appendChild(movieImg);
+    movieContainer.appendChild(movieBtn);
     container.appendChild(movieContainer);
   });
 }
