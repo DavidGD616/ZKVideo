@@ -1,5 +1,5 @@
 import { getRelatedMoviesId } from "../utils/getMovies";
-import createMovies from "../utils/createMovies";
+import { createMovies } from "../utils/createMovies";
 import { ListContainers } from "../utils/Nodes";
 
 const RelatedMoviesId = async (id) => {

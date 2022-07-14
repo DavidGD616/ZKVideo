@@ -1,6 +1,6 @@
 import { getTrendingMovies } from "../utils/getMovies";
 import { ListContainers } from "../utils/Nodes";
-import createMovies from "../utils/createMovies";
+import { createMovies } from "../utils/createMovies";
 
 const TrendingMoviesPreview = async () => {
   const trendingMovies = await getTrendingMovies();

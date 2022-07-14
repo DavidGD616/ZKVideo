@@ -1,5 +1,33 @@
 import lazyLoader from "./lazyLoader";
 
+function likedMoviesList() {
+  const item = JSON.parse(localStorage.getItem('liked_movies'));
+  let movies;
+  
+  if (item) {
+    movies = item;
+  } else {
+    movies = {};
+  }
+
+  console.log(movies)
+}
+
+function likedMovie(movie) {
+  // movie.id
+  const likedMovies = likedMoviesList();
+
+  if (likedMovies[movie.id]) {
+    // Remove from LS
+    likedMovie[movie.id] = undefined;
+  } else {
+    // Add to LS
+    likedMovie[movie.id] = movie;
+  }
+
+  localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
+}
+
 function createMovies(movies, container,
   {
     lazyLoad = false,
@@ -35,7 +63,7 @@ function createMovies(movies, container,
     movieBtn.classList.add('movie-btn');
     movieBtn.addEventListener('click', () => {
       movieBtn.classList.toggle('movie-btn--liked');
-      // We must to add the movie to LS
+      likedMovie(movie);
     })
     
 
@@ -49,4 +77,6 @@ function createMovies(movies, container,
   });
 }
 
-export default createMovies;
+export {
+  createMovies,
+};

@@ -1,5 +1,5 @@
 import { Sections } from "../utils/Nodes";
-import createMovies from "../utils/createMovies";
+import { createMovies } from "../utils/createMovies";
 import { getPaginatedMoviesByCategory } from "../utils/getMovies";
 
 const PaginatedMoviesByCategory = async (id) => {

@@ -1,4 +1,4 @@
-import createMovies from "../utils/createMovies";
+import { createMovies } from "../utils/createMovies";
 import { getMoviesByCategory } from "../utils/getMovies";
 import { Sections } from "../utils/Nodes";
 
