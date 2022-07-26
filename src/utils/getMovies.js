@@ -1,5 +1,4 @@
 const axios = require("axios");
-import { likedMoviesList } from "./createMovies";
 
 const API_KEY = process.env.API_KEY;
 
@@ -12,6 +11,37 @@ const api = axios.create({
     api_key: API_KEY,
   },
 });
+
+// Liked Movie
+
+function likedMoviesList() {
+  const item = JSON.parse(localStorage.getItem('liked_movies'));
+  let movies;
+  
+  if (item) {
+    movies = item;
+  } else {
+    movies = {};
+  }
+  
+  console.log(movies)
+  return movies;
+}
+
+function likedMovie(movie) {
+  // movie.id
+  const likedMovies = likedMoviesList();
+
+  if (likedMovies[movie.id]) {
+    // Remove from LS
+    likedMovies[movie.id] = undefined;
+  } else {
+    // Add to LS
+    likedMovies[movie.id] = movie;
+  }
+
+  localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
+}
 
 // Get Movies
 
@@ -176,4 +206,5 @@ export {
   getPaginatedTrendingMovies,
   getPaginatedMoviesBySearch,
   getPaginatedMoviesByCategory,
+  likedMovie
 };

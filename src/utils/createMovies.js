@@ -1,32 +1,6 @@
+import { likedMovie } from "./getMovies";
 import lazyLoader from "./lazyLoader";
 
-function likedMoviesList() {
-  const item = JSON.parse(localStorage.getItem('liked_movies'));
-  let movies;
-  
-  if (item) {
-    movies = item;
-  } else {
-    movies = {};
-  }
-
-  console.log(movies)
-}
-
-function likedMovie(movie) {
-  // movie.id
-  const likedMovies = likedMoviesList();
-
-  if (likedMovies[movie.id]) {
-    // Remove from LS
-    likedMovie[movie.id] = undefined;
-  } else {
-    // Add to LS
-    likedMovie[movie.id] = movie;
-  }
-
-  localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
-}
 
 function createMovies(movies, container,
   {
