@@ -1,6 +1,6 @@
 # ZKVideo
 
-Project based in show an interface that can comunicate a public API to get movies and show it in the frontend in dynamic way. The aplication is just available for mobile devices and tablets until 600px width.
+Project based to show an interface that can communicate a public API to get movies and show it in the frontend in dynamic way. The application is just available for mobile devices and tablets until 600px width.
 
 # Mockup of the project
 
