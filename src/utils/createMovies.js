@@ -1,5 +1,6 @@
-import { likedMovie, likedMoviesList } from "./getMovies";
+import { getLikedMovies, likedMovie, likedMoviesList } from "./getMovies";
 import lazyLoader from "./lazyLoader";
+import gtLikedMovies from "../components/LikedMovies";
 
 
 function createMovies(movies, container,
@@ -39,6 +40,8 @@ function createMovies(movies, container,
     movieBtn.addEventListener('click', () => {
       movieBtn.classList.toggle('movie-btn--liked');
       likedMovie(movie);
+
+      gtLikedMovies()
     })
     
 

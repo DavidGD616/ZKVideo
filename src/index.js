@@ -16,6 +16,7 @@ const trendingPreviewSection = Sections().trendingPreviewSection;
 const CategoriesPreviewSection = Sections().CategoriesPreviewSection;
 const genericSection = Sections().genericSection;
 const movieDetailSection = Sections().movieDetailSection;
+const likedMoviesSection = Sections().likedMoviesSection;
 
 //Lists & Containers
 const searchForm = ListContainers().searchForm;
@@ -94,6 +95,7 @@ function homePage() {
 
   trendingPreviewSection.classList.remove("inactive");
   CategoriesPreviewSection.classList.remove("inactive");
+  likedMoviesSection.classList.remove("inactive")
   genericSection.classList.add("inactive");
   movieDetailSection.classList.add("inactive");
 
@@ -115,6 +117,7 @@ function categoriesPage() {
 
   trendingPreviewSection.classList.add("inactive");
   CategoriesPreviewSection.classList.add("inactive");
+  likedMoviesSection.classList.add("inactive")
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
 
@@ -146,6 +149,7 @@ function movieDetailsPage() {
 
   trendingPreviewSection.classList.add("inactive");
   CategoriesPreviewSection.classList.add("inactive");
+  likedMoviesSection.classList.add("inactive")
   genericSection.classList.add("inactive");
   movieDetailSection.classList.remove("inactive");
 
@@ -169,6 +173,7 @@ function searchPage() {
 
   trendingPreviewSection.classList.add("inactive");
   CategoriesPreviewSection.classList.add("inactive");
+  likedMoviesSection.classList.add("inactive")
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
 
@@ -194,6 +199,7 @@ function trendsPage() {
 
   trendingPreviewSection.classList.add("inactive");
   CategoriesPreviewSection.classList.add("inactive");
+  likedMoviesSection.classList.add("inactive")
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
 

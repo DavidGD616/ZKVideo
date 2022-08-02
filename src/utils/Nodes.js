@@ -6,6 +6,7 @@ export function Sections() {
   const CategoriesPreviewSection = $("#categoriesPreview");
   const genericSection = $("#genericList");
   const movieDetailSection = $("#movieDetail");
+  const likedMoviesSection = $("#liked");
 
   return {
     headerSection,
@@ -13,6 +14,7 @@ export function Sections() {
     CategoriesPreviewSection,
     genericSection,
     movieDetailSection,
+    likedMoviesSection
   };
 }
 
