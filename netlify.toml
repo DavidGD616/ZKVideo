@@ -1,4 +1,3 @@
 [build]
     publish = "dist"
     command = "npm run build"
-    API_KEY = process.env.API_KEY;
