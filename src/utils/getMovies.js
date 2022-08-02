@@ -1,7 +1,6 @@
 const axios = require("axios");
 
 const API_KEY = process.env.API_KEY;
-console.log(API_KEY)
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
@@ -9,7 +8,7 @@ const api = axios.create({
     "Content-Type": "application/json;charset=utf-8",
   },
   params: {
-    api_key: API_KEY,
+    api_key: "076283d41c73974e25900220732f4940",
   },
 });
 

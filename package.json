@@ -13,6 +13,7 @@
   "author": "David Guerrero <davidguerrerodiaz12@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "netlify-cli": "^2.12.0",
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
