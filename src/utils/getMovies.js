@@ -24,7 +24,6 @@ function likedMoviesList() {
     movies = {};
   }
   
-  console.log(movies)
   return movies;
 }
 
@@ -197,6 +196,12 @@ const getPaginatedMoviesBySearch = async (query) => {
 
 };
 
+const getLikedMovies = async () => {
+  const likedMovies = likedMoviesList();
+
+  return likedMovies;
+}
+
 export {
   getTrendingMovies,
   getMoviesByCategory,
@@ -206,5 +211,6 @@ export {
   getPaginatedTrendingMovies,
   getPaginatedMoviesBySearch,
   getPaginatedMoviesByCategory,
-  likedMovie
+  likedMovie,
+  getLikedMovies,
 };

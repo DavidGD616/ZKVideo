@@ -1,7 +1,6 @@
 import { getPaginatedTrendingMovies } from "../utils/getMovies";
 import { Sections } from "../utils/Nodes";
 import { createMovies } from "../utils/createMovies";
-import trendingMoviesPage from "./TrendingMoviesPage";
 
 const PaginatedTrendingMovies = async () => {
   const pgTrendingMovies = await getPaginatedTrendingMovies();

@@ -8,6 +8,7 @@ import trendingMoviesPage from "./components/TrendingMoviesPage";
 import PaginatedTrendingMovies from "./components/PaginatedTrendingMovies";
 import PaginatedMoviesBySearch from "./components/PaginatedMoviesBySearch";
 import PaginatedMoviesByCategory from "./components/PaginatedMoviesByCategory";
+import gtLikedMovies from "./components/LikedMovies";
 
 //Sections
 const headerSection = Sections().headerSection;
@@ -98,6 +99,7 @@ function homePage() {
 
   TrendingMoviesPreview();
   CategoriesPreview();
+  gtLikedMovies();
 }
 
 // Categories

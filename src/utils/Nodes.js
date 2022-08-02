@@ -24,6 +24,7 @@ export function ListContainers() {
   const categoriesPreviewList = $(".categoriesPreview-list");
   const movieDetailCategoriesList = $("#movieDetail .categories-list");
   const relatedMoviesContainer = $(".relatedMovies-scrollContainer");
+  const likedMoviesList = $(".liked-movieList");
 
   return {
     searchForm,
@@ -31,6 +32,7 @@ export function ListContainers() {
     categoriesPreviewList,
     movieDetailCategoriesList,
     relatedMoviesContainer,
+    likedMoviesList
   };
 }
 
