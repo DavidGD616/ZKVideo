@@ -1,4 +1,4 @@
-import { likedMovie } from "./getMovies";
+import { likedMovie, likedMoviesList } from "./getMovies";
 import lazyLoader from "./lazyLoader";
 
 
@@ -35,6 +35,7 @@ function createMovies(movies, container,
 
     const movieBtn = document.createElement('button');
     movieBtn.classList.add('movie-btn');
+    likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
     movieBtn.addEventListener('click', () => {
       movieBtn.classList.toggle('movie-btn--liked');
       likedMovie(movie);

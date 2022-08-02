@@ -213,4 +213,5 @@ export {
   getPaginatedMoviesByCategory,
   likedMovie,
   getLikedMovies,
+  likedMoviesList,
 };
